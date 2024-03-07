@@ -7,11 +7,34 @@ const theme = extendTheme({
     global: {
       "html, body": {
         height: "100%",
+        background: "#111b21",
+        color: "#e5ddd5",
       },
       "#root": {
         height: "100%",
       },
     },
+  },
+  components: {
+    Button: {
+      defaultProps: {
+        colorScheme: "whatsapp",
+      },
+    },
+    Input: {
+      baseStyle: {
+        field: {
+          color: "white",
+        },
+      },
+    },
+  },
+  colors: {
+    whatsapp: {
+      300: "#00A884",
+    },
+    userMessageBg: "#005c4b",
+    botMessageBg: "#262d31",
   },
 });
 
@@ -51,17 +74,17 @@ const Index = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <Flex height="100vh" flexDirection="column" p={4} bg="white">
+      <Flex height="100vh" flexDirection="column" p={4} bg="#111b21">
         <VStack flex={1} overflowY="auto" spacing={1}>
           {messages.map((message) => (
-            <Flex key={message.id} alignSelf={message.sender === "user" ? "flex-end" : "flex-start"} bg={message.sender === "user" ? "whatsapp.300" : "#ECE5DD"} p={3} borderRadius="lg" maxWidth="75%" m={1}>
+            <Flex key={message.id} alignSelf={message.sender === "user" ? "flex-end" : "flex-start"} bg={message.sender === "user" ? "userMessageBg" : "botMessageBg"} p={3} borderRadius="lg" maxWidth="75%" m={1}>
               <Text>{message.text}</Text>
             </Flex>
           ))}
         </VStack>
         <HStack mt={4}>
-          <Input placeholder="Type a message" value={input} onChange={handleInputChange} onKeyPress={handleInputKeyPress} borderRadius="2xl" border="none" bg="#f0f2f5" px={4} />
-          <Button colorScheme="whatsapp" onClick={handleSendMessage} borderRadius="full" p="0" minW="45px" h="45px" alignItems="center" justifyContent="center" bg="whatsapp.500" _hover={{ bg: "whatsapp.600" }}>
+          <Input placeholder="Type a message" value={input} onChange={handleInputChange} onKeyPress={handleInputKeyPress} borderRadius="2xl" border="none" bg="#262d31" px={4} />
+          <Button onClick={handleSendMessage} borderRadius="full" p="0" minW="45px" h="45px" alignItems="center" justifyContent="center" bg="whatsapp.300" _hover={{ bg: "#00A884" }}>
             <FaPaperPlane />
           </Button>
         </HStack>
