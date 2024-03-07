@@ -51,17 +51,17 @@ const Index = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      <Flex height="100vh" flexDirection="column" p={4} bg="whatsapp.100">
-        <VStack flex={1} overflowY="auto" spacing={4}>
+      <Flex height="100vh" flexDirection="column" p={4} bg="white">
+        <VStack flex={1} overflowY="auto" spacing={1}>
           {messages.map((message) => (
-            <Flex key={message.id} alignSelf={message.sender === "user" ? "flex-end" : "flex-start"} bg={message.sender === "user" ? "whatsapp.300" : "white"} p={3} borderRadius="lg">
+            <Flex key={message.id} alignSelf={message.sender === "user" ? "flex-end" : "flex-start"} bg={message.sender === "user" ? "whatsapp.300" : "#ECE5DD"} p={3} borderRadius="lg" maxWidth="75%" m={1}>
               <Text>{message.text}</Text>
             </Flex>
           ))}
         </VStack>
         <HStack mt={4}>
-          <Input placeholder="Type your message..." value={input} onChange={handleInputChange} onKeyPress={handleInputKeyPress} borderRadius="full" border="1px" borderColor="whatsapp.300" />
-          <Button colorScheme="whatsapp" onClick={handleSendMessage} borderRadius="full" p="0" minW="45px" h="45px" alignItems="center" justifyContent="center">
+          <Input placeholder="Type a message" value={input} onChange={handleInputChange} onKeyPress={handleInputKeyPress} borderRadius="2xl" border="none" bg="#f0f2f5" px={4} />
+          <Button colorScheme="whatsapp" onClick={handleSendMessage} borderRadius="full" p="0" minW="45px" h="45px" alignItems="center" justifyContent="center" bg="whatsapp.500" _hover={{ bg: "whatsapp.600" }}>
             <FaPaperPlane />
           </Button>
         </HStack>
