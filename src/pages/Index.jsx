@@ -13,6 +13,15 @@ const theme = extendTheme({
       "#root": {
         height: "100%",
       },
+      "::-webkit-scrollbar": {
+        width: "12px",
+        borderRadius: "10px",
+        backgroundColor: `rgba(0, 0, 0, 0.05)`,
+      },
+      "::-webkit-scrollbar-thumb": {
+        borderRadius: "10px",
+        backgroundColor: `rgba(255, 255, 255, 0.15)`,
+      },
     },
   },
   components: {
