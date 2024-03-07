@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChakraProvider, Avatar, VStack, HStack, Input, Button, Text, Flex, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, Box, VStack, HStack, Input, Button, Text, Flex, Spacer, extendTheme } from "@chakra-ui/react";
 import { FaPaperPlane } from "react-icons/fa";
 
 const theme = extendTheme({
@@ -75,10 +75,7 @@ const Index = () => {
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh" flexDirection="column" p={4} bg="#111b21">
-        <Flex align="center" justify="center" height="30%" bg="#128C7E">
-          <Avatar size="2xl" name="User" src="https://bit.ly/broken-link" />
-        </Flex>
-        <VStack flex={0.7} overflowY="auto" spacing={1}>
+        <VStack flex={1} overflowY="auto" spacing={1}>
           {messages.map((message) => (
             <Flex key={message.id} alignSelf={message.sender === "user" ? "flex-end" : "flex-start"} bg={message.sender === "user" ? "userMessageBg" : "botMessageBg"} p={3} borderRadius="lg" maxWidth="75%" m={1}>
               <Text>{message.text}</Text>
