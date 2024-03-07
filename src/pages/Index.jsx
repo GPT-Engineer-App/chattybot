@@ -75,7 +75,7 @@ const Index = () => {
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh" flexDirection="column" p={4} bg="#111b21">
-        <VStack flex={1} overflowY="auto" spacing={1}>
+        <VStack flex={1} overflowY="scroll" spacing={1} sx={{ "&::-webkit-scrollbar": { display: "none" }, scrollbarWidth: "none" }}>
           {messages.map((message) => (
             <Flex key={message.id} alignSelf={message.sender === "user" ? "flex-end" : "flex-start"} bg={message.sender === "user" ? "userMessageBg" : "botMessageBg"} p={3} borderRadius="lg" maxWidth="75%" m={1}>
               <Text>{message.text}</Text>
